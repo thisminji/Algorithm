@@ -1,11 +1,11 @@
 -- 코드를 작성해주세요
-select a.score, b.EMP_NO, b.EMP_NAME, b.POSITION,b.EMAIL
-from HR_EMPLOYEES b, 
-(
-select c.EMP_NO, sum(c.score) AS score
-FROM HR_GRADE c
-where c.YEAR=2022
-group by c.emp_no) a
-where b.emp_no=a.emp_no
-order by score desc 
+select b.SCORE, a.EMP_NO, a.EMP_NAME, a.position, a.email
+from HR_EMPLOYEES A,(
+    select emp_no, sum(score) as score
+from HR_GRADE 
+where year=2022
+group by emp_no)
+b
+where a.EMP_NO = b.EMP_NO
+order by b.score desc
 limit 1
