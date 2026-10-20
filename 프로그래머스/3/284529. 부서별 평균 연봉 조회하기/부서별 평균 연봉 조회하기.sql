@@ -1,0 +1,6 @@
+-- 코드를 작성해주세요
+select A.DEPT_ID, A.DEPT_NAME_EN, ROUND(AVG(B.SAL),0) AS AVG_SAL
+from HR_DEPARTMENT A, HR_EMPLOYEES B
+where A.DEPT_ID=b.DEPT_ID
+group by B.DEPT_ID
+order by AVG_SAL DESC
