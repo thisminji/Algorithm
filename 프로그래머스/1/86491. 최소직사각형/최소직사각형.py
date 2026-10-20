@@ -1,15 +1,9 @@
 def solution(sizes):
-    max_w=0
-    max_h=0
+    max_list=[]
+    min_list=[]
     
-    for w, h in sizes:
-        big =max(w,h)
-        small=min(w,h)
-        
-        if big>max_w:
-            max_w=big
-            
-        if small>max_h:
-            max_h=small
-    answer = max_w*max_h
-    return answer
+    for i in sizes:
+        max_list.append(max(i))
+        min_list.append(min(i))
+
+    return max(max_list)*max(min_list)
