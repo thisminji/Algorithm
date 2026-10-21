@@ -1,19 +1,21 @@
-from collections import deque
+import math
 
-def solution(progresses,speeds):
-    days=deque()
+def solution(progresses, speeds):
+    day = []
 
-    for p,s in zip(progresses,speeds):
-        remain=100-p
-        d=(remain+s-1)//s
-        days.append(d)
-    result=[]
-
-    while days:
-        depoly_day=days[0]
-        cnt=0
-        while days and days[0]<=depoly_day:
-            days.popleft()
-            cnt+=1
-        result.append(cnt)
-    return result
+    for i in range(len(progresses)):
+        day.append(math.ceil((100 - progresses[i]) / speeds[i]))
+     
+    answer=[]
+    count=1
+    start=day[0]
+    
+    for i in range(1,len(day)):
+        if day[i]<=start:
+            count+=1
+        else:
+            answer.append(count)
+            count=1
+            start=day[i]
+    answer.append(count)
+    return answer
