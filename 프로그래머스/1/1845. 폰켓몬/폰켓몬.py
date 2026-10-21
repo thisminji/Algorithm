@@ -1,13 +1,9 @@
 def solution(nums):
-    n=len(nums)
-    limit=n//2
+    n=len(nums)//2
+    count={}
     
-    mp={}
+    for i in nums:
+        count[i]=count.get(i,0)+1
     
-    for x in nums:
-        mp[x]=mp.get(x,0)+1
-        # 딕셔너리는 중복 불허용 
-        # 딕셔너리에서 len()은 키 종류 개수 카운트
-    kinds=len(mp)
-
-    return min(limit,kinds)
+    answer = min(n,len(count))
+    return answer
