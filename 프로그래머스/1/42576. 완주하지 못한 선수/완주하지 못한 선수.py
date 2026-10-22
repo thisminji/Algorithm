@@ -1,12 +1,10 @@
 def solution(participant, completion):
-    mp = {}
-    for name in participant:
-        mp[name]=mp.get(name,0)+1
-        
-    for name in completion:
-        mp[name]-=1
-        
-        # mp.items() - 딕셔너리에 들어있는 키 값 쌍을 전부 꺼내줌
-    for name, cnt in mp.items():
-        if cnt==1:
-            return name
+    count={}
+    
+    for i in participant:
+        count[i]=count.get(i,0)+1
+    for i in completion:
+        count[i]=count.get(i,0)-1
+    for i in count:
+        if count[i]==1:
+            return i
