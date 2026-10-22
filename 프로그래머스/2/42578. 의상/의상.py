@@ -7,5 +7,4 @@ def solution(clothes):
     answer=1
     for i in count.values():
         answer=answer*(i+1)
-        
     return answer-1
