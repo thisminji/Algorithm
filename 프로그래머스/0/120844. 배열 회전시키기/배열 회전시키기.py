@@ -1,7 +1,6 @@
 def solution(numbers, direction):
-    answer = []
     if direction=='right':
-        answer=numbers[-1:]+numbers[0:-1]
+        numbers.insert(0,numbers.pop())
     else:
-        answer=numbers[1:]+numbers[:1]        
-    return answer
+        numbers.append(numbers.pop(0))
+    return numbers
