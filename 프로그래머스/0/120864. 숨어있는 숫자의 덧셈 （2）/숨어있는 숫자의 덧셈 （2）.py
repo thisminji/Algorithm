@@ -1,13 +1,3 @@
 def solution(my_string):
-    answer = 0
-    num=''
-    for i in my_string:
-        if i.isdigit()==True:
-            num+=i
-        else:
-            if num!='':
-                answer+=int(num)
-                num=''
-    if num!='':
-        answer+=int(num)
-    return answer
+    my_string=''.join(i if i.isdigit() else ' ' for i in my_string)
+    return sum(int(i) for i in my_string.split())
