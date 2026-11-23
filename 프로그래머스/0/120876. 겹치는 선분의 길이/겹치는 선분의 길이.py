@@ -1,5 +1,4 @@
 def solution(lines):
-    answer = 0
     count={}
     for start, end in lines:
         for i in range(start,end):
